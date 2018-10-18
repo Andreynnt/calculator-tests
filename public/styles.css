@@ -19,7 +19,7 @@ body {
 .calculator {
     background-color: black;
     width: 25vw;
-    height: 84vh;
+    height: 79vh;
     border-radius: 20px;
     flex-direction: column;
 }
@@ -109,4 +109,18 @@ body {
 
 .card-3 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.test-button {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    background-color: #FF9500;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
 }
