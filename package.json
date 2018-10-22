@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./server.js",
-    "test": "mocha"
+    "babel-compile": "./node_modules/.bin/babel public --out-dir dist && ./node_modules/.bin/babel test --out-dir dist --ignore '**/browser-test.js'",
+    "test": "npm run-script babel-compile && cd dist/ && ../node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "chai": "^4.2.0",

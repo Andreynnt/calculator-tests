@@ -1,5 +1,16 @@
-const buttons = document.querySelectorAll('.calculator__button');
-const screen = document.querySelector('.calculator__answer');
+let buttons, screen;
+
+if (typeof window === 'undefined') {
+    class Screen {
+        constructor() {
+            this.innerHTML = '';
+        }
+    }
+    screen = new Screen();
+} else {
+    buttons = document.querySelectorAll('.calculator__button');
+    screen = document.querySelector('.calculator__answer');
+}
 
 export default class Calculator {
     constructor(screen) {
@@ -141,8 +152,10 @@ export default class Calculator {
 
 const calculator = new Calculator(screen);
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        calculator.buttonAction(button.innerHTML);
+if (typeof window !== 'undefined') {
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            calculator.buttonAction(button.innerHTML);
+        });
     });
-});
+}
