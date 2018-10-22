@@ -166,7 +166,7 @@ export default class Tests {
                     this.calculator.buttonAction('0');
                     this.calculator.buttonAction('=');
                     this.calculator.buttonAction('8');
-                    this.chai.expect(0).to.be.equal(this.calculator.getValueOnScreen());
+                    this.chai.expect('0').to.be.equal(this.calculator.getValueOnScreen().toString());
                 });
             });
         });
