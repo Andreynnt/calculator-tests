@@ -5,7 +5,8 @@ import {
     multiplyTests,
     percentTests,
     plusMinusTests,
-    plusTests
+    plusTests,
+    twoOperationsTests
 } from "./examples.js";
 
 export default class Tests {
@@ -34,6 +35,13 @@ export default class Tests {
                         this.calculator.buttonAction(button);
                         this.chai.expect(button).to.be.equal(+this.calculator.getValueOnScreen().toString());
                     });
+                });
+            });
+
+            describe('Press = on clear screen', () => {
+                it('Click on = should be 0', () => {
+                    this.calculator.buttonAction('=');
+                    this.chai.expect('0').to.be.equal(this.calculator.getValueOnScreen());
                 });
             });
 
@@ -134,6 +142,31 @@ export default class Tests {
                         this.calculator.buttonAction('±');
                         this.chai.expect(example.answer).to.be.equal(this.calculator.getValueOnScreen().toString());
                     });
+                });
+            });
+
+            describe('Operation after operation', () => {
+                twoOperationsTests.forEach(example => {
+                    it(`${example.first} + ${example.second} + ${example.third} = ${example.answer}`, () => {
+                        this.calculator.buttonAction(example.first);
+                        this.calculator.buttonAction('+');
+                        this.calculator.buttonAction(example.second);
+                        this.calculator.buttonAction('+');
+                        this.calculator.buttonAction(example.third);
+                        this.calculator.buttonAction('=');
+                        this.chai.expect(example.answer).to.be.equal(this.calculator.getValueOnScreen().toString());
+                    });
+                });
+            });
+
+            describe('Press digit after error', () => {
+                it('Press digit after error', () => {
+                    this.calculator.buttonAction('1');
+                    this.calculator.buttonAction('/');
+                    this.calculator.buttonAction('0');
+                    this.calculator.buttonAction('=');
+                    this.calculator.buttonAction('8');
+                    this.chai.expect(0).to.be.equal(this.calculator.getValueOnScreen());
                 });
             });
         });

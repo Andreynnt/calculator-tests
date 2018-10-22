@@ -206,3 +206,12 @@ export const plusMinusTests = [
         answer: '9000'
     },
 ];
+
+export const twoOperationsTests = [
+    {
+        first: '5',
+        second: '100',
+        third: '105',
+        answer: '210'
+    }
+];
