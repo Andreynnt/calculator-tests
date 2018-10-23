@@ -45,6 +45,14 @@ export default class Tests {
                 });
             });
 
+            describe('AC then press on digit', () => {
+                it('Should be one digit on screen', () => {
+                    this.calculator.buttonAction('AC');
+                    this.calculator.buttonAction(5);
+                    this.chai.expect('5').to.be.equal(this.calculator.getValueOnScreen().toString());
+                });
+            });
+
             describe('Test clear button', () => {
                 it('Click on digit and screen should be 0', () => {
                     this.calculator.buttonAction('2');

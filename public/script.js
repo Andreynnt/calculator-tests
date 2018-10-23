@@ -1,15 +1,19 @@
 let buttons, screen;
 
-if (typeof window === 'undefined') {
-    class Screen {
-        constructor() {
-            this.innerHTML = '';
+switch (typeof window) {
+    case 'undefined':
+        class Screen {
+            constructor() {
+                this.innerHTML = '';
+            }
         }
-    }
-    screen = new Screen();
-} else {
-    buttons = document.querySelectorAll('.calculator__button');
-    screen = document.querySelector('.calculator__answer');
+        screen = new Screen();
+        break;
+    /* istanbul ignore next */
+    case 'object':
+        buttons = document.querySelectorAll('.calculator__button');
+        screen = document.querySelector('.calculator__answer');
+        break;
 }
 
 export default class Calculator {
@@ -56,6 +60,7 @@ export default class Calculator {
     onActionPressed(buttonValue) {
         if (buttonValue === 'AC') {
             this.screen.innerHTML = '0';
+            this.state.performingMath = false;
             return;
         }
 
@@ -100,11 +105,7 @@ export default class Calculator {
             // нажали на цифру
             this.screen.innerHTML += buttonValue;
         } else if (buttonValue === '=') {
-            if (this.screen.innerHTML === '=') return;
-
             const valueOnScreen = parseInt(this.screen.innerHTML.slice(1));
-            if (isNaN(valueOnScreen)) return;
-
             this.count(valueOnScreen);
         } else if (buttonValue === 'AC') {
             this.screen.innerHTML = '0';
