@@ -5,11 +5,6 @@ export const minusTests = [
         answer: '-3'
     },
     {
-        first: '100',
-        second: '100',
-        answer: '0'
-    },
-    {
         first: '0',
         second: '0',
         answer: '0'
@@ -33,16 +28,6 @@ export const plusTests = [
         answer: '0'
     },
     {
-        first: '13',
-        second: '1000',
-        answer: '1013'
-    },
-    {
-        first: '999',
-        second: '0',
-        answer: '999'
-    },
-    {
         first: '2099',
         second: '8001',
         answer: '10100'
@@ -50,16 +35,6 @@ export const plusTests = [
 ];
 
 export const multiplyTests = [
-    {
-        first: '2',
-        second: '5',
-        answer: '10'
-    },
-    {
-        first: '31',
-        second: '10000',
-        answer: '310000'
-    },
     {
         first: '999',
         second: '0',
@@ -84,19 +59,9 @@ export const divisionTests = [
         answer: '20'
     },
     {
-        first: '33',
-        second: '33',
-        answer: '1'
-    },
-    {
         first: '134',
         second: '25',
         answer: '5.36'
-    },
-    {
-        first: '150000',
-        second: '30000',
-        answer: '5'
     },
     {
         first: '6',
@@ -108,11 +73,6 @@ export const divisionTests = [
 export const divisionByZeroTests = [
     {
         first: '100',
-        second: '0',
-        answer: 'Error'
-    },
-    {
-        first: '-30.35',
         second: '0',
         answer: 'Error'
     },
@@ -129,12 +89,8 @@ export const percentTests = [
         answer: '1'
     },
     {
-        first: '0.3',
-        answer: '0.003'
-    },
-    {
-        first: '-99999',
-        answer: '-999.99'
+        first: '-0.3',
+        answer: '-0.003'
     },
     {
         first: '0',
@@ -146,10 +102,6 @@ export const plusMinusTests = [
     {
         first: '8.123',
         answer: '-8.123'
-    },
-    {
-        first: '500',
-        answer: '-500'
     },
     {
         first: '-9000',
