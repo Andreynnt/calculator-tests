@@ -1,15 +1,7 @@
-import Calculator from '../dist/script.js';
+import Calculator from '../dist/calculator.js';
+import Tests from './Tests.js';
 var chai = require('chai');
 
-class Screen {
-    constructor() {
-        this.innerHTML = '';
-    }
-}
-
-const screen = new Screen();
-const calculator = new Calculator(screen);
-
-import Tests from './Tests.js';
-const tests = new Tests(calculator, screen, chai);
+const calculator = new Calculator();
+const tests = new Tests(calculator, chai);
 tests.runTests();

@@ -1,8 +1,7 @@
 import '../node_modules/chai/chai.js';
-import Calculator from '../public/script.js';
-const screen = document.createElement('div');
-const calculator = new Calculator(screen);
+import Calculator from '../public/calculator.js';
+const calculator = new Calculator();
 
 import Tests from './Tests.js';
-const tests = new Tests(calculator, screen, chai);
+const tests = new Tests(calculator, chai);
 tests.runTests();
